@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<style>
+  body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-image: url("img.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  .btn1{
+    width: 300px;
+    height: 200px;
+    border: 0;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.4;
+    z-index: 2;
+    box-shadow: 5px 5px 5px 5px white;
+  }
+  .btn2{
+    width: 70px;
+    height: 50px;
+    border: 0;
+    border-radius:20%;
+    background-color: greenyellow;
+    opacity: 0.5;
+  }
+  .btn3{
+    width: 70px;
+    height: 50px;
+    border: 0;
+    border-radius:20%;
+    background-color: greenyellow;
+    opacity: 0.5;
+  }
+  .qw{
+    font-size: 49px;
+    line-height: 200px;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    z-index: 3;
+  }
+  #root{
+    margin-top: 5%;
+  }
+</style>
+<body>
+<div id="root">
+  <p style="text-align: center"><button class="btn1" @click="gd">
+    <div class="qw">功德{{a}}</div>
+  </button></p>
+  <p style="text-align:center;margin-top: 27%">
+    <button class="btn2" @click="clear">清空</button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn3" @click="full">功德加满</button>
+  </p>
+</div>
+</body>
+<script type="text/javascript">
+  Vue.config.productionTip=false
+  const vm=new Vue({
+    el:'#root',
+    data: {
+      a:0
+    },methods:{
+      gd(){
+        this.a++
+        if(this.a==10000000){
+          alert("功德加满,即将清零")
+          if (this.a==10000000){
+            this.clear()
+          }
+        }
+      },
+      clear(){
+        this.a=0
+      },
+      full(){
+        this.a=9999999
+      }
+    }
+  })
+
+</script>
+</html>
